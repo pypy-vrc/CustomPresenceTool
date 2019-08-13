@@ -36,7 +36,7 @@ namespace CustomPresenceTool
                     BeginInvoke(new MethodInvoker(() =>
                     {
                         label_StatusDescription.Text = "Ready";
-                        ShowMessage($"OnReady: ${_e.User.Username}#${_e.User.Discriminator}");
+                        ShowMessage($"OnReady: {_e.User.Username}#{_e.User.Discriminator}");
                     }));
                 };
                 m_Client.OnClose += (_sender, _e) =>
@@ -44,7 +44,7 @@ namespace CustomPresenceTool
                     BeginInvoke(new MethodInvoker(() =>
                     {
                         label_StatusDescription.Text = "Not Connected";
-                        ShowMessage($"OnClose: ${_e.Code} ${_e.Reason}");
+                        ShowMessage($"OnClose: {_e.Code} {_e.Reason}");
                     }));
                 };
                 m_Client.OnError += (_sender, _e) =>
@@ -52,7 +52,7 @@ namespace CustomPresenceTool
                     BeginInvoke(new MethodInvoker(() =>
                     {
                         label_StatusDescription.Text = "Error Occured";
-                        ShowMessage($"OnError: ${_e.Code} ${_e.Message}");
+                        ShowMessage($"OnError: {_e.Code} {_e.Message}");
                     }));
                 };
                 m_Client.OnConnectionEstablished += (_sender, _e) =>
@@ -60,7 +60,7 @@ namespace CustomPresenceTool
                     BeginInvoke(new MethodInvoker(() =>
                     {
                         label_StatusDescription.Text = "Connected";
-                        ShowMessage($"OnConnectionEstablished: Pipe#${_e.ConnectedPipe}");
+                        ShowMessage($"OnConnectionEstablished: Pipe#{_e.ConnectedPipe}");
                     }));
                 };
                 m_Client.OnConnectionFailed += (_sender, _e) =>
@@ -68,12 +68,12 @@ namespace CustomPresenceTool
                     BeginInvoke(new MethodInvoker(() =>
                     {
                         label_StatusDescription.Text = "Connect Failed";
-                        ShowMessage($"OnConnectionFailed: Pipe#${_e.FailedPipe}");
+                        ShowMessage($"OnConnectionFailed: Pipe#{_e.FailedPipe}");
                     }));
                 };
                 m_Client.OnPresenceUpdate += (_sender, _e) =>
                 {
-                    // ShowMessage($"OnPresenceUpdate");
+                    // ShowMessage("OnPresenceUpdate");
                 };
                 m_Client.Initialize();
             }
